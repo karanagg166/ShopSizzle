@@ -114,7 +114,7 @@ const AnalyticsTab = () => {
 };
 export default AnalyticsTab;
 
-const AnalyticsCard = ({ title, value, icon: Icon, color }: { title: string, value: string, icon: React.ElementType, color: string }) => (
+const AnalyticsCard = ({ title, value, icon: Icon, color }: { title: string, value: string, icon: React.ComponentType<{ className?: string }>, color: string }) => (
     <motion.div
         className={`bg-gray-800 rounded-lg p-6 shadow-lg overflow-hidden relative ${color}`}
         initial={{ opacity: 0, y: 20 }}

@@ -2,9 +2,14 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 import CategoryItem from "@/components/CategoryItem";
 import { useProductStore } from "@/stores/useProductStore";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import dynamic from "next/dynamic";
+
+const GlobalReach = dynamic(() => import("@/components/GlobalReach"), { ssr: false });
 
 const categories = [
   { href: "/category/men", name: "Men", imageUrl: "https://images.unsplash.com/photo-1516257984881-1d546a5851b2?w=800&q=80" },
@@ -47,6 +52,8 @@ const HomePage = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
+      {/* Particles Background */}
+      <ParticlesBackground />
       {/* Animated Background Orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="bg-orb bg-orb-1" />
@@ -69,7 +76,17 @@ const HomePage = () => {
             transition={{ delay: 0.2 }}
             className="inline-block px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-widest mb-8"
           >
-            ✨ The New Collection
+            ✨ <span className="inline-block min-w-[120px]">
+              <Typewriter
+                words={['The New Collection', 'Premium Fashion', 'Exclusive Styles', 'Luxury Defined']}
+                loop={0}
+                cursor
+                cursorStyle='_'
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
           </motion.span>
 
           <motion.h1
@@ -152,6 +169,11 @@ const HomePage = () => {
             <FeaturedProducts featuredProducts={products} />
           </motion.div>
         )}
+
+        {/* Global Reach - 3D Globe */}
+        <div className="w-full flex justify-center pb-20">
+          <GlobalReach />
+        </div>
 
         {/* Loading State */}
         {loading && (
