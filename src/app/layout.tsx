@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/providers/theme-provider";
+import SmoothScrolling from "@/components/SmoothScrolling";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -32,21 +33,23 @@ const RootLayout = ({
             enableSystem
             disableTransitionOnChange={false}
           >
-            {/* Main Content */}
-            <div className="relative min-h-screen">
-              <Navbar />
-              <main className="pt-20">
-                {children}
-              </main>
-            </div>
+            <SmoothScrolling>
+              {/* Main Content */}
+              <div className="relative min-h-screen">
+                <Navbar />
+                <main className="pt-20">
+                  {children}
+                </main>
+              </div>
 
-            {/* Toast Notifications */}
-            <Toaster
-              position="bottom-right"
-              richColors
-              closeButton
-              theme="dark"
-            />
+              {/* Toast Notifications */}
+              <Toaster
+                position="bottom-right"
+                richColors
+                closeButton
+                theme="dark"
+              />
+            </SmoothScrolling>
           </ThemeProvider>
         </AuthProvider>
       </body>

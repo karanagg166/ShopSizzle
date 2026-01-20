@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { hashPassword } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
@@ -42,7 +43,28 @@ export const GET = async () => {
     try {
         // Delete existing products
         await prisma.product.deleteMany({});
-        console.log("Deleted existing products");
+        await prisma.user.deleteMany({ where: { role: "seller" } });
+        console.log("Deleted existing products and sellers");
+
+        const password = await hashPassword("123456");
+        const sellersData = [
+            { name: "Shop Sizzle Premium", email: "premium@shopsizzle.com" },
+            { name: "Urban Trends", email: "urban@shopsizzle.com" },
+            { name: "Luxe Life", email: "luxe@shopsizzle.com" }
+        ];
+
+        const createdSellers = [];
+        for (const s of sellersData) {
+            const seller = await prisma.user.create({
+                data: {
+                    name: s.name,
+                    email: s.email,
+                    password,
+                    role: "seller"
+                }
+            });
+            createdSellers.push(seller);
+        }
 
         const productsToCreate = [];
 
@@ -84,6 +106,7 @@ export const GET = async () => {
                     rating,
                     numReviews,
                     isFeatured: i < 2, // First 2 of each category featured
+                    sellerId: createdSellers[i % createdSellers.length].id,
                 });
             }
         }
