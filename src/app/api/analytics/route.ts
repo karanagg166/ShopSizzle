@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export const GET = async () => {
     try {
         const user = await getAuthenticatedUser();
         if (!user || user.role !== "admin") {
@@ -48,7 +48,7 @@ export async function GET() {
 
         // Group orders by date in JavaScript
         const salesByDate: Record<string, { sales: number; revenue: number }> = {};
-        orders.forEach((order) => {
+        orders.forEach((order: { createdAt: Date; totalAmount: number }) => {
             const date = order.createdAt.toISOString().split("T")[0];
             if (!salesByDate[date]) {
                 salesByDate[date] = { sales: 0, revenue: 0 };
@@ -79,7 +79,7 @@ export async function GET() {
     }
 }
 
-function getDatesInRange(startDate: Date, endDate: Date) {
+const getDatesInRange = (startDate: Date, endDate: Date) => {
     const dates = [];
     const currentDate = new Date(startDate);
 
