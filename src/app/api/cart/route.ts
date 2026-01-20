@@ -16,7 +16,7 @@ export const GET = async (_req: NextRequest) => {
 
         // Map to format matching legacy (product details + quantity at top level?)
         // Legacy: returns array of { ...product, quantity }.
-        const formattedItems = cartItems.map((item) => ({
+        const formattedItems = cartItems.map((item: any) => ({
             ...item.product,
             quantity: item.quantity,
             cartItemId: item.id, // helpful for updates? But legacy used updateQuantity by productId.
@@ -67,7 +67,7 @@ export const POST = async (req: NextRequest) => {
             where: { userId: user.id },
             include: { product: true },
         });
-        const formattedItems = cartItems.map((item) => ({
+        const formattedItems = cartItems.map((item: any) => ({
             ...item.product,
             quantity: item.quantity,
         }));
@@ -101,7 +101,7 @@ export const DELETE = async (req: NextRequest) => {
             where: { userId: user.id },
             include: { product: true },
         });
-        const formattedItems = cartItems.map((item) => ({
+        const formattedItems = cartItems.map((item: any) => ({
             ...item.product,
             quantity: item.quantity,
         }));
