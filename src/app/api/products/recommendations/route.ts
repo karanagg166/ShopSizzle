@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(_req: NextRequest) {
+export const GET = async (_req: NextRequest) => {
     try {
         const products = await prisma.product.findMany({
             take: 3,

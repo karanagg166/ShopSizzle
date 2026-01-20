@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
-export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const PUT = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
     try {
         const user = await getAuthenticatedUser();
         if (!user) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -27,7 +27,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
             where: { userId: user.id },
             include: { product: true },
         });
-        const formattedItems = cartItems.map((item) => ({
+        const formattedItems = cartItems.map((item: { product: any; quantity: number }) => ({
             ...item.product,
             quantity: item.quantity,
         }));

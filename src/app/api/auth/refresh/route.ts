@@ -5,7 +5,7 @@ import { decode } from "jsonwebtoken";
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(_req: NextRequest) {
+export const POST = async (_req: NextRequest) => {
     try {
         const cookieStore = await cookies();
         const refreshToken = cookieStore.get("refreshToken")?.value;

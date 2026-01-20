@@ -3,7 +3,7 @@ import { getAuthenticatedUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(_req: NextRequest) {
+export const GET = async (_req: NextRequest) => {
     try {
         const user = await getAuthenticatedUser();
 

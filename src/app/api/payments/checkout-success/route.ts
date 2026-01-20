@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 import { prisma } from "@/lib/prisma";
 
-export async function POST(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
     try {
         const { sessionId } = await req.json();
         const session = await stripe.checkout.sessions.retrieve(sessionId);

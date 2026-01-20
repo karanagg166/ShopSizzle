@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
     try {
         const user = await getAuthenticatedUser();
         if (!user) return NextResponse.json({ message: "Unauthorized" }, { status: 401 });

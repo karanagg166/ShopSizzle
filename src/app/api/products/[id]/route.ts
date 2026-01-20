@@ -5,7 +5,7 @@ import { getAuthenticatedUser } from "@/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
     try {
         const user = await getAuthenticatedUser();
         if (!user || user.role !== "admin") {
@@ -40,7 +40,7 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
     }
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export const PATCH = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
     try {
         const user = await getAuthenticatedUser();
         if (!user || user.role !== "admin") {
