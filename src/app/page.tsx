@@ -67,16 +67,16 @@ const HomePage = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            className="inline-block px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-widest mb-8"
           >
-            ✨ New Collection Available
+            ✨ The New Collection
           </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-6xl sm:text-7xl lg:text-8xl font-heading font-black mb-8 tracking-tight"
           >
             <span className="text-gradient">Shop Sizzle</span>
           </motion.h1>
@@ -85,23 +85,23 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+            className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed"
           >
-            Discover premium fashion curated for the modern you.
-            Elevate your style with our exclusive collection.
+            Curated magnificence for the modern connoisseur.
+            Elevate your existence with our exclusive, limited-edition pieces.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex gap-4 justify-center"
+            className="flex gap-6 justify-center"
           >
             <button className="btn-primary">
-              Shop Now
+              Shop The Drop
             </button>
-            <button className="px-6 py-3 rounded-full border border-border bg-card/50 backdrop-blur-sm text-foreground font-medium hover:bg-card transition-all duration-300">
-              View Collection
+            <button className="px-8 py-3 rounded-sm border border-primary/20 bg-background/50 backdrop-blur-sm text-foreground font-medium hover:bg-primary/5 uppercase text-xs tracking-widest transition-all duration-300">
+              View Lookbook
             </button>
           </motion.div>
         </motion.div>
@@ -111,20 +111,23 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mb-20"
+          className="mb-32"
         >
-          <h2 className="text-3xl font-bold text-center mb-2">
-            Browse Categories
-          </h2>
-          <p className="text-muted-foreground text-center mb-10">
-            Find what you&apos;re looking for
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading font-bold mb-4">
+              Curated Categories
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50" />
+            <p className="text-muted-foreground mt-4 uppercase text-xs tracking-widest">
+              Explore our signature collections
+            </p>
+          </div>
 
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
             {categories.map((category) => (
               <motion.div key={category.name} variants={itemVariants}>
@@ -140,7 +143,12 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
+            className="mb-20"
           >
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-heading font-bold mb-4">Trending Now</h2>
+              <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50" />
+            </div>
             <FeaturedProducts featuredProducts={products} />
           </motion.div>
         )}

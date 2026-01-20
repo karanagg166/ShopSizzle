@@ -1,82 +1,82 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
-/* Premium Theme Variables */
+/* Luxury Theme Variables */
 :root {
-  /* Base Colors */
+  /* Base Colors - Noir & Gold */
   --background: #ffffff;
-  --foreground: #0f172a;
+  --foreground: #0a0a0a;
   
   /* Card & Surface */
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #0a0a0a;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --popover-foreground: #0a0a0a;
   
-  /* Primary - Emerald/Teal Gradient */
-  --primary: #10b981;
-  --primary-foreground: #ffffff;
+  /* Primary - Metallic Gold */
+  --primary: #d4af37;
+  --primary-foreground: #1a1a1a;
   
-  /* Secondary */
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
+  /* Secondary - Deep Charcoal */
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
   
   /* Muted */
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
   
   /* Accent */
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
   
   /* Destructive */
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   
   /* Border & Input */
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #10b981;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #d4af37;
   
-  /* Radius */
-  --radius: 0.75rem;
+  /* Radius - Luxurious Sharp/Slight Curve */
+  --radius: 0.25rem;
 }
 
 .dark {
-  /* Dark Mode Colors */
-  --background: #030712;
-  --foreground: #f8fafc;
+  /* Dark Mode Colors - Deep Noir */
+  --background: #050505;
+  --foreground: #fafafa;
   
   /* Card & Surface */
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  --popover: #0f172a;
-  --popover-foreground: #f8fafc;
+  --card: #0a0a0a;
+  --card-foreground: #fafafa;
+  --popover: #0a0a0a;
+  --popover-foreground: #fafafa;
   
-  /* Primary */
-  --primary: #10b981;
-  --primary-foreground: #030712;
+  /* Primary - Gold */
+  --primary: #d4af37;
+  --primary-foreground: #000000;
   
   /* Secondary */
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
   
   /* Muted */
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
+  --muted: #1a1a1a;
+  --muted-foreground: #a1a1aa;
   
   /* Accent */
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
+  --accent: #1a1a1a;
+  --accent-foreground: #fafafa;
   
   /* Destructive */
-  --destructive: #dc2626;
-  --destructive-foreground: #f8fafc;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
   
   /* Border & Input */
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #10b981;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4af37;
 }
 
 @theme inline {
@@ -97,8 +97,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
+  --font-heading: var(--font-playfair);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -111,28 +111,33 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), var(--font-outfit), sans-serif;
   min-height: 100vh;
 }
 
-/* Premium Background Gradient */
-.bg-gradient-premium {
-  background: linear-gradient(135deg, var(--background) 0%, #0f172a 50%, #134e4a 100%);
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), serif;
 }
 
-/* Glassmorphism Effect */
+/* Premium Background Gradient - Noir */
+.bg-gradient-premium {
+  background: linear-gradient(135deg, var(--background) 0%, #0f0f0f 50%, #1a1a1a 100%);
+}
+
+/* Glassmorphism Effect - Refined */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.1); /* Subtle Gold Border */
 }
 
 /* Smooth Scrolling */
@@ -140,63 +145,75 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Premium Button Styles */
+/* Premium Button Styles - Gold */
 .btn-primary {
-  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-  color: white;
+  background: linear-gradient(135deg, #d4af37 0%, #e6c25e 100%);
+  color: black;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  padding: 0.75rem 2rem;
+  border-radius: 0.25rem; /* Sharper */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
 }
 
-/* Text Gradient */
+/* Text Gradient - Gold */
 .text-gradient {
-  background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
+  background: linear-gradient(to right, #d4af37, #f3e5ab, #d4af37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% auto;
+  animation: shine 5s linear infinite;
 }
 
-/* Animated Background Orbs */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Animated Background Orbs - Adjusted for Noir */
 .bg-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: float 8s ease-in-out infinite;
+  filter: blur(100px);
+  opacity: 0.15;
+  animation: float 10s ease-in-out infinite;
 }
 
 .bg-orb-1 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #10b981, #06b6d4);
-  top: -100px;
-  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: #d4af37;
+  top: -150px;
+  left: -200px;
 }
 
 .bg-orb-2 {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  bottom: -50px;
-  right: -50px;
-  animation-delay: -4s;
+  width: 400px;
+  height: 400px;
+  background: #8e7316;
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -5s;
 }
 
 .bg-orb-3 {
-  width: 250px;
-  height: 250px;
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  width: 300px;
+  height: 300px;
+  background: #ffffff;
   top: 50%;
   left: 50%;
   animation-delay: -2s;
+  opacity: 0.05;
 }
 
 @keyframes float {
@@ -204,62 +221,41 @@ html {
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(30px, -30px) scale(1.1);
+    transform: translate(40px, -40px) scale(1.1);
   }
 }
 
-/* Card Hover Effects */
+/* Card Hover Effects - Clean */
 .card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Shimmer Effect */
-.shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 /* Selection Color */
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(212, 175, 55, 0.3);
   color: inherit;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Thin Gold */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
+  background: #3f3f46;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0d9668;
+  background: var(--primary);
 }

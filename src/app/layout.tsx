@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google"; // Luxury Fonts
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/providers/theme-provider";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { Toaster } from "sonner";
+// ... imports
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +33,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-      <body className={`${inter.className} bg-background text-foreground min-h-screen relative overflow-x-hidden antialiased`}>
+      <body className={`${playfair.variable} ${outfit.variable} font-sans bg-background text-foreground min-h-screen relative overflow-x-hidden antialiased`}>
         <AuthProvider>
           <ThemeProvider
             attribute="class"
