@@ -157,8 +157,8 @@ function getImageUrl(category: string, index: number): string {
             "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d",
             "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
             "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908",
-            "https://images.unsplash.com/photo-1512120011382-70b77b1e754a",
-            "https://images.unsplash.com/photo-1559563458-52c69527029b",
+            "https://images.unsplash.com/photo-1599643478518-17488fbbcd75",
+            "https://images.unsplash.com/photo-1611085583191-a3b181a88401",
         ],
         Shoes: [
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
